@@ -29,6 +29,7 @@ For detailed implementation instructions, please read this blogpost: https://aws
 
 10. The Lambda function uses four environment variables. Add them:
 ![alt text](https://github.com/javabrown/amazon-lex-twilio-sms-chatbot/blob/master/Lex_Bot_2.gif?raw=true)
+
 You need to create the gateway before you can set the API_GATEWAY_URL value, so leave that field blank for now. You will provide this value later.
 
 11. Leave the Handler set to index.handler, and then choose Choose an existing role. Type lambda-exec-role-for-lex, which is the role that you created for this Lambda function to assume.
@@ -41,3 +42,15 @@ You need to create the gateway before you can set the API_GATEWAY_URL value, so 
 "body-json": "From=867-5309&Body=book+hotel"
 }
 ```
+
+This simulates the From and Body parameters that the Twilio webhook will submit to your HTTPS endpoint. You should see a response from the chatbot that looks something like this:
+![alt text](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2017/05/19/Lex_Bot_3.gif)
+
+You’ve gotten a response from your bot! Now you can create your API endpoint.
+
+
+## Setup AWS API Gateway to create an HTTPS endpoint 
+ Follow AWS Instructions [Instructions](https://aws.amazon.com/blogs/machine-learning/integrate-your-amazon-lex-bot-with-any-messaging-service/).
+
+
+#### ***Curtsy: Ahmad R. Khan & AWS Team handling demo projects repos. Most of the project idea are derived from AWS Demo repositories.
